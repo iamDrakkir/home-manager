@@ -32,7 +32,7 @@
         # waybar
         hyprpanel.packages.x86_64-linux.wrapper
         hyprpanel
-        # rofi-wayland
+        rofi-wayland
         bibata-cursors
         # catppuccin-grub - handled by Ubuntu
         # catppuccin-sddm - handled by Ubuntu
@@ -40,8 +40,10 @@
         wl-clipboard
         cliphist
         wtype # used by super+w
+        slurp # screenshot
+        grim # screenshot
+        satty # screenshot
 
-        xdg-desktop-portal-gtk
 
         # apps
         # (config.lib.nixGL.wrap ghostty) is wrap needed at all? what is the difference?
@@ -124,20 +126,20 @@
       # });
     };
 
-    xdg.enable=true;
-    xdg.mime.enable=true;
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-hyprland   # the Hyprland‐native portal backend
-        # (config.lib.nixGL.wrap pkgs.hyprland)
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
+    # xdg.enable=true;
+    # xdg.mime.enable=true;
+    # xdg.portal = {
+    #   enable = true;
+    #   extraPortals = with pkgs; [
+    #     xdg-desktop-portal-hyprland   # the Hyprland‐native portal backend
+    #     # (config.lib.nixGL.wrap pkgs.hyprland)
+    #     # xdg-desktop-portal-wlr
+    #     xdg-desktop-portal-gtk
+    #   ];
 
-      configPackages = [ /* pkgs.hyprland */ ];
-      config = {
-        hyprland.default = [ "wlr" "gtk" ];
-      };
-    };
+    #   configPackages = [ /* pkgs.hyprland */ ];
+    #   config = {
+    #     hyprland.default = [ "wlr" "gtk" ];
+    #   };
+    # };
   }
